@@ -1,4 +1,5 @@
-import { Text, View, TouchableOpacity, Image, ImageBackground } from "react-native";
+import { Text, View, TouchableOpacity, ImageBackground } from "react-native";
+import { opacity } from "react-native-reanimated/lib/typescript/Colors";
 
 const styles = {
     button: {
@@ -22,6 +23,7 @@ const styles = {
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
+      opacity: 0.8,
     },
   };
   
