@@ -1,5 +1,3 @@
-import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
-
 const headerOptions = (title : string) => ({
     headerTitle: title,
     headerStyle: { 
