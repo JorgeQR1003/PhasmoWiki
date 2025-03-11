@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const styles = StyleSheet.create ({
     button: {
@@ -22,7 +23,7 @@ const styles = StyleSheet.create ({
     },
     overlay: {
       ...StyleSheet.absoluteFillObject,
-      backgroundColor: 'rgba(0, 0, 0, 0.3)', // Dark overlay for the opacity effect
+      backgroundColor: 'rgba(0, 0, 0, 0.3)',
     },
   
   });
@@ -34,11 +35,14 @@ const styles = StyleSheet.create ({
     tip: require('../../assets/images/tip_button.jpg')
 };
 
-export const Boton = ({nombre = "default", imagen = "ghost"}) => {
+export const Boton = ({nombre = "Ghost", imagen = "ghost", goTo = "Ghosts" }) => {
+  const navigation = useNavigation();
 
-
-return(
-    <TouchableOpacity style={styles.button} onPress={() => alert(`Button ${nombre} Pressed!`)}>
+  return(
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={() => navigation.navigate(goTo)}
+      >
         <ImageBackground
             source={images[imagen]}
             style={styles.image}
@@ -47,7 +51,7 @@ return(
             <View style={styles.overlay}/>
             <Text style={styles.buttonText}>{nombre}</Text>
         </ImageBackground>
-    </TouchableOpacity>
-)
+      </TouchableOpacity>
+  )
 
 }

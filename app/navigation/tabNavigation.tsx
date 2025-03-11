@@ -3,6 +3,7 @@ import { Text, useColorScheme, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/home';
 import Questions from '../screens/questions';
+import headerOptions from '../styles/header';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,8 +19,46 @@ export default function TabNavigator() {
         tabBarInactiveTintColor: "gray",
       }}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Q&A" component={Questions} />
+      <Tab.Screen 
+        name="Home" 
+        component={Home} 
+        options={{ 
+          tabBarIcon: () => null,
+          tabBarLabel: ({ color }) => (
+            <Text 
+              style={{ 
+                fontSize: 28, 
+                fontFamily: "Lazy Dog", 
+                color: color,
+                textAlign: "center",
+              }}
+            >
+              Home
+            </Text>
+          ),
+          ...headerOptions("PHASMOWIKI"),
+        }} 
+      />
+      <Tab.Screen 
+        name="Q&A" 
+        component={Questions} 
+        options={{ 
+          tabBarIcon: () => null,
+          tabBarLabel: ({ color }) => (
+            <Text 
+              style={{ 
+                fontSize: 28, 
+                fontFamily: "Lazy Dog", 
+                color: color,
+                textAlign: "center",
+              }}
+            >
+              Q&A
+            </Text>
+          ),
+          ...headerOptions("Q&A"),
+        }} 
+      />
     </Tab.Navigator>
   );
 }

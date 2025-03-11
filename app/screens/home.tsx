@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, useColorScheme, StyleSheet } from 'react-native';
-import { Boton } from '../components/button';
+import { Boton } from '../components/boton';
 
 export default function Home() {
   const colorScheme = useColorScheme();
@@ -8,10 +8,10 @@ export default function Home() {
   return (
     <View style={colorScheme === 'dark' ? styles.dark_back : styles.light_back}>
       <View style={styles.buttonContainer}>
-        <Boton nombre="Ghost" imagen="ghost" />
-        <Boton nombre="Maps" imagen="map" />
-        <Boton nombre="Patch Notes" imagen="patch" />
-        <Boton nombre="Tips" imagen="tip" />
+        <Boton nombre="Ghost" imagen="ghost" goTo="Ghosts"/>
+        <Boton nombre="Maps" imagen="map" goTo="Maps"/>
+        <Boton nombre="Patch Notes" imagen="patch" goTo="Patch"/>
+        <Boton nombre="Tips" imagen="tip" goTo="Tips"/>
       </View>
     </View>
   );
