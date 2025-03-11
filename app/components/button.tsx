@@ -1,13 +1,10 @@
-import { Text, View, TouchableOpacity, ImageBackground } from "react-native";
-import { opacity } from "react-native-reanimated/lib/typescript/Colors";
+import { Text, View, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
 
-const styles = {
+const styles = StyleSheet.create ({
     button: {
       width: 280, 
       height: 110, 
       backgroundColor: "black",
-      justifyContent: "center",
-      alignItems: "center",
       borderRadius: 10, 
       margin: 10, 
       overflow: "hidden"
@@ -16,18 +13,21 @@ const styles = {
       color: "white",
       fontSize: 25,
       fontFamily: "Lazy Dog",
+      zIndex: 1,
     },
     image: {
-      width: 280,
-      height: 110,
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      opacity: 0.8,
     },
-  };
+    overlay: {
+      ...StyleSheet.absoluteFillObject,
+      backgroundColor: 'rgba(0, 0, 0, 0.3)', // Dark overlay for the opacity effect
+    },
   
-  const images = {
+  });
+  
+  const images: { [key : string] : any } = {
     ghost: require('../../assets/images/ghost_button.jpg'),
     map: require('../../assets/images/map_button.jpg'),
     patch: require('../../assets/images/patch_button.jpg'),
@@ -44,6 +44,7 @@ return(
             style={styles.image}
             resizeMode="cover"
         >
+            <View style={styles.overlay}/>
             <Text style={styles.buttonText}>{nombre}</Text>
         </ImageBackground>
     </TouchableOpacity>
