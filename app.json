@@ -9,13 +9,21 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.phasmowiki",  
+      "buildNumber": "1.0.0",                        
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow access to camera.",
+        "NSPhotoLibraryUsageDescription": "Allow access to photos."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.phasmowiki",
+      "versionCode": 1
     },
     "web": {
       "bundler": "metro",
